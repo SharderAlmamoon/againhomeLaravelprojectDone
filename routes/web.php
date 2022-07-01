@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/view',function(){
+    return view('backend.dashboard');
+})->name('backenddashboard');
+
+Route::get('/vendortedit',function(){
+    return view('backend.pages.forVendor.editVendor');
+})->name('vendortedit');
