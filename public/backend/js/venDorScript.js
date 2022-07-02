@@ -67,8 +67,28 @@ jQuery(document).ready(function () {
                         response.errors.trade_number
                     );
                     jQuery(".statusError").text(response.errors.status);
+                } else {
+                    jQuery(".msg").append(
+                        '<div class="alert alert-success">' +
+                            response.message +
+                            "</div>"
+                    );
+                    jQuery(".msg").fadeOut(5000);
+                    jQuery("#AddVendorModal").modal("hide");
+                    jQuery("#AddVendorModal").find("input").val("");
+                    jQuery("#AddVendorModal").find("select").val("");
+                    jQuery("#AddVendorModal").find("textarea").val("");
                 }
             },
         });
     });
+    // FOr SHow
+    function forshowVendor() {
+        $.ajax({
+            url: "forshow",
+            dataType: "json",
+            type: "GET",
+            success: function (result) {},
+        });
+    }
 });

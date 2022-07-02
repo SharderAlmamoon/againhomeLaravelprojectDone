@@ -24,9 +24,12 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function forshow()
     {
-        //
+        $vendorall = Vendor::orderby('id','asc')->get();
+        return [
+            'vendor'=>$vendorall
+        ];
     }
 
     /**
@@ -80,9 +83,9 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        
     }
 
     /**

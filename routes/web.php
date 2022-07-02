@@ -24,3 +24,4 @@ Route::get('/view',function(){
 // For Vendor
 Route::get('/vendormanage',[VendorController::class,'index'])->name('vendormanage');
 Route::post('/vendorstore',[VendorController::class,'store']);
+Route::get('/forshow',[VendorController::class,'forshow']);
