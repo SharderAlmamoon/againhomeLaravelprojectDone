@@ -1,4 +1,5 @@
 jQuery(document).ready(function () {
+    forshowVendor();
     // For Insert
     jQuery(".AddedVendorButton").click(function () {
         $.ajaxSetup({
@@ -88,7 +89,60 @@ jQuery(document).ready(function () {
             url: "forshow",
             dataType: "json",
             type: "GET",
-            success: function (result) {},
+            success: function (result) {
+                jQuery(".vendorDetails").html("");
+                $.each(result.vendor, function (key, sivendor) {
+                    if (sivendor.status == 1) {
+                        var status =
+                            '<div class="badge badge-success">Active</div>';
+                    } else {
+                        var status =
+                            '<div class="badge badge-warning">Inactive</div>';
+                    }
+                    jQuery(".vendorDetails").append(
+                        "<tr>\
+                    <td>" +
+                            sivendor.name +
+                            "</td>\
+                    <td>" +
+                            sivendor.description +
+                            "</td>\
+                    <td>" +
+                            sivendor.office_address +
+                            "</td>\
+                    <td>" +
+                            sivendor.email +
+                            "</td>\
+                    <td>" +
+                            sivendor.phone +
+                            "</td>\
+                    <td>" +
+                            sivendor.operator_name +
+                            "</td>\
+                    <td>" +
+                            sivendor.operator_phone +
+                            "</td>\
+                    <td>" +
+                            sivendor.tin +
+                            "</td>\
+                    <td>" +
+                            sivendor.trade_number +
+                            "</td>\
+                    <td>" +
+                            status +
+                            '</td>\
+                    <td>\
+                      <button value="' +
+                            sivendor.id +
+                            '" class="btn btn-sm btn-success editButtonforshow" data-toggle="modal" data-target="#CouponEdit"><i class="fa fa-edit"></i></button>\
+                      <button value="' +
+                            sivendor.id +
+                            '" class="btn btn-sm btn-danger deletebuttonfordelete" data-toggle="modal" data-target="#CouponDelete"><i class="fa fa-trash"></i></button>\
+                    </td>\
+                  </tr>'
+                    );
+                });
+            },
         });
     }
 });

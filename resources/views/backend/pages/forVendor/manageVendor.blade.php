@@ -285,7 +285,7 @@
               </tr>
             </thead>
             <tbody class="vendorDetails">
-              <tr>
+              <!-- <tr>
                 <td>name</td>
                 <td>description</td>
                 <td>office_address</td>
@@ -300,7 +300,7 @@
                   <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#CouponEdit"><i class="fa fa-edit"></i></button>
                   <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#CouponDelete"><i class="fa fa-trash"></i></button>
                 </td>
-              </tr>
+              </tr> -->
               <!-- modal -->
             </tbody>
           </table>
