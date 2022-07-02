@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\VendorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,6 @@ Route::get('/', function () {
 Route::get('/view',function(){
     return view('backend.dashboard');
 })->name('backenddashboard');
-
-Route::get('/vendortedit',function(){
-    return view('backend.pages.forVendor.editVendor');
-})->name('vendortedit');
+// For Vendor
+Route::get('/vendormanage',[VendorController::class,'index'])->name('vendormanage');
+Route::post('/vendorstore',[VendorController::class,'store']);

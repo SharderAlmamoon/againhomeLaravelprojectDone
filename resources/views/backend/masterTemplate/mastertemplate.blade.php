@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+ 
+    @include('backend.includes.meta')
     <!-- Required meta tags -->
    <!-- MEta Tag Here -->
 

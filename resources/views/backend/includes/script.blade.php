@@ -21,7 +21,16 @@
     <script src="{{asset('backend/js/map.shiftworker.js')}}"></script>
     <script src="{{asset('backend/js/ResizeSensor.js')}}"></script>
     <script src="{{asset('backend/js/dashboard.js')}}"></script>
-    <script>
+    <script src="{{asset('backend/js/venDorScript.js')}}"></script>
+    <!-- JQUERY DATA TABLE SCRIPT -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <!-- JQUERY DATA TABLE SCRIPT Build in-->
+   <script>
+     jQuery(document).ready(function () {
+       jQuery('#mydataTable').DataTable();
+      });
+   </script>
+   <script>
       $(function(){
         'use strict'
 
@@ -48,4 +57,4 @@
           }
         }
       });
-    </script>
+   </script>

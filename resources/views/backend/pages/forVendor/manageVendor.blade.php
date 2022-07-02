@@ -3,12 +3,16 @@
 <div class="br-pagetitle">
         <i class="icon ion-ios-home-outline"></i>
         <div>
-          <h4>Manage Category</h4>
+          <h4>Manage Vendor</h4>
+          <div class="new ">
+          <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#AddVendorModal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add venDor</button>
+        </div>
         </div>
          <div class="ml-auto">
           <a href="{{ Route('backenddashboard') }}">Dashboard</a> /
-          <a href="{{ Route('vendortedit') }}">manage vendor</a>
+          <a href="{{ Route('vendormanage') }}">manage vendor</a>
         </div>
+        
       </div>
 <!--VENDOR  ADDMODAL START -->
 <!-- Modal -->
@@ -264,11 +268,9 @@
       <div class="br-pagebody">
           <div class="msg"></div>
         <div class="card bd-0 shadow-base">
-          <button data-toggle="modal" data-target="#AddVendorModal" class=" m-3 ml-auto btn btn-sm btn-info"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Vendor</button>
-          <table id="mydatatable" class="display">
+          <table id="mydataTable" class="display">
             <thead>
               <tr>
-                <th>#sl</th>
                 <th>name</th>
                 <th>description</th>
                 <th>office_address</th>
@@ -282,12 +284,10 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody class="vendorbody">
-              <!-- <tr>
-                <td>$sl</td>
+            <tbody class="vendorDetails">
+              <tr>
                 <td>name</td>
                 <td>description</td>
-                <td>discount_amount</td>
                 <td>office_address</td>
                 <td>email</td>
                 <td>phone</td>
@@ -300,7 +300,7 @@
                   <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#CouponEdit"><i class="fa fa-edit"></i></button>
                   <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#CouponDelete"><i class="fa fa-trash"></i></button>
                 </td>
-              </tr> -->
+              </tr>
               <!-- modal -->
             </tbody>
           </table>

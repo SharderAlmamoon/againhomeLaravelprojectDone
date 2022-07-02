@@ -16,7 +16,7 @@
             <span class="menu-item-label">Manage Vendor</span>
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
-            <li class="sub-item"><a href="{{Route('vendortedit')}}" class="sub-link">ManageVendor</a></li>
+            <li class="sub-item"><a href="{{Route('vendormanage')}}" class="sub-link">ManageVendor</a></li>
           </ul>
         </li><!-- br-menu-item -->
 
