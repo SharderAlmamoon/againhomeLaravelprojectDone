@@ -138,6 +138,8 @@
                 <div class="col-md-6">
                 <!-- vendor name -->
                   <div class="form-group">
+
+                  <input readonly type="text" id="id">
                     <label for="">vendor name :</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter VEndor Name">
                     <span class="text-danger nameError"></span>
@@ -233,7 +235,7 @@
 
 <!--VENDOR  DELETE START -->
 <!-- Modal -->
-<div class="modal fade" id="vendorDeleteButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deletebuttonfordelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -243,7 +245,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <input type="hidden" id="did">
+              <input type="text" id="deleteid">
               <div class="text-warning font-weight-bold display-4">
                 OPPSSS !! are you Sure! 
               </div>

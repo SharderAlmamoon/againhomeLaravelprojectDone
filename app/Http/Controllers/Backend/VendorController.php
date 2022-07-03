@@ -44,10 +44,10 @@ class VendorController extends Controller
             'name'=> 'required',
             'description'=> 'required',
             'office_address'=> 'required',
-            'email'=> 'required',
-            'phone'=> 'required',
+            'email'=> 'required|email|unique:vendors',
+            'phone'=> 'required|numeric|unique:vendors',
             'operator_name'=> 'required',
-            'operator_phone'=> 'required',
+            'operator_phone'=> 'required|numeric|unique:vendors',
             'tin'=> 'required',
             'trade_number'=> 'required',
             'status'=> 'required',
@@ -90,13 +90,16 @@ class VendorController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *s
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function vendoreditforshow($id)
     {
-        //
+       $singlevendor = Vendor::find($id);
+       return [
+         'singleVen'=>$singlevendor
+       ];
     }
 
     /**
@@ -108,7 +111,40 @@ class VendorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'name'=>'required',
+            'description'=>'required',
+            'office_address'=>'required',
+            // 'email'=>'required|unique:vendors',
+            // 'phone'=>'required|unique:vendors',
+            'operator_name'=>'required',
+            // 'operator_phone'=>'required|unique:vendors',
+            // 'tin'=>'required|unique:vendors',
+            // 'trade_number'=>'required|unique:vendors',
+            'status'=>'required',
+        ]);
+        if($validator->fails()){
+            return [
+                'faild' => '404',
+                'error' =>$validator->messages()
+            ];
+        }else{
+            $vendorUpdate = Vendor::find($id);
+            $vendorUpdate->name = $request->name;
+            $vendorUpdate->description = $request->description;
+            $vendorUpdate->office_address = $request->office_address;
+            $vendorUpdate->email = $request->email;
+            $vendorUpdate->phone = $request->phone;
+            $vendorUpdate->operator_name = $request->operator_name;
+            $vendorUpdate->operator_phone = $request->operator_phone;
+            $vendorUpdate->tin = $request->tin;
+            $vendorUpdate->trade_number = $request->trade_number;
+            $vendorUpdate->status = $request->status;
+            $vendorUpdate->update();
+            return response()->json([
+                'message'=>'Updated SuccessFully'
+            ]);
+        }
     }
 
     /**
@@ -119,6 +155,10 @@ class VendorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deletevendor = Vendor::find($id);
+        $deletevendor->delete();
+        return [
+            'message'=>'SUCCEFULLY DELETED'
+        ];
     }
 }
